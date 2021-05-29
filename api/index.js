@@ -1,14 +1,15 @@
 import express from 'express';
 import { ApolloServer } from 'apollo-server-express';
-import schema from 
+import typeDefs from './schemas/schema';
+import resolvers from './resolvers/resolvers'
+
  
 const app = express();
  
-const schema = 
-const resolvers = 
+
  
 const server = new ApolloServer({
-  typeDefs: schema,
+  typeDefs,
   resolvers,
 });
  

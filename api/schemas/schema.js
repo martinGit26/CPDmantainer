@@ -1,28 +1,26 @@
-import {gql} from 'apollo-server-express'
+import {gql} from 'graphql-tag'
 
-const schemas = gql`{
-    type login {
-        token: string
+const schemas = gql`
+    type User {
+        name: String
+        apellido: String 
+        username: String 
+        groups: String
     }
 
-    type user {
-        name: string, 
-        apellido: string, 
-        username: string, 
-        groups: [string]
-    }
-
-    type UserInput {
-        username: string, 
-        password: string,
-        name: string, 
-        apellido: string, 
-        groups: [string]
+    input UserInput {
+        username: String 
+        password: String
+        name: String 
+        apellido: String 
+        groups: String
     }
 
     type Query {
-        login(user: Userinput) : string, 
-        sigin(user: UserInput): User, 
-        get_user(token: string): User
+        login(user: UserInput) : String 
+        sigin(user: UserInput) : User
+        get_user(token: String) : User
     }
-}`
+`;
+
+export default schemas
