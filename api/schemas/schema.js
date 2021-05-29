@@ -16,10 +16,32 @@ const schemas = gql`
         groups: String
     }
 
+    input ActivoInput {
+        nombre: String
+        host: String, 
+        tipo: String, 
+        gAdmin: String, 
+
+    }
+
+    type Activo {
+        nombre: String
+        host: String, 
+        tipo: String, 
+        gAdmin: String, 
+
+    }
+
     type Query {
+        #Gestion de usuarios
         login(user: UserInput) : String 
         sigin(user: UserInput) : User
         get_user(token: String) : User
+
+        #Gestion de activos
+        getAllActives(): Activo
+        getActivo(activo: ActivoInput)
+        addActivo(activo: ActivoInput)
     }
 `;
 
