@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+   
+    <ion-title>Changelog {{activo}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item *ngFor="let i of changes.getChanges">
+    <ion-label>
+      <h2>{{i.user}}</h2>
+      <p>{{i.mensaje}}</p>
+    </ion-label>
+
+    </ion-item>
+</ion-content>
+
+<ion-footer class="ion-no-border">
+  <ion-toolbar>
+    <form>
+      <ion-item><ion-input placeholder="input your change" [(ngModel)]="message" name="message"></ion-input>
+        <ion-button slot="end" (click)="send()">send</ion-button>
+      </ion-item>
+      
+    </form>
+   
+  </ion-toolbar>
+</ion-footer>

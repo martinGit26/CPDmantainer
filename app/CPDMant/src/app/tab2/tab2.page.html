@@ -1,15 +1,8 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-row>
-      <ion-col size="6">
-        <ion-title>
-          Search
-        </ion-title>
-      </ion-col>
-      <ion-col>  <ion-searchbar animated></ion-searchbar></ion-col>
-    </ion-row>
-    
-  
+    <ion-title>
+      Tab 2
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -19,6 +12,8 @@
       <ion-title size="large">Tab 2</ion-title>
     </ion-toolbar>
   </ion-header>
-
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+<ion-card>
+  <ion-input [(ngModel)]="texto"></ion-input>
+  <button (click)="salvar()">mostrar</button>
+</ion-card>
 </ion-content>

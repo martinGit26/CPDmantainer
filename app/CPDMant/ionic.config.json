@@ -1,5 +1,7 @@
 {
   "name": "CPDMant",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

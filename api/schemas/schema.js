@@ -9,11 +9,11 @@ const schemas = gql`
     }
 
     input UserInput {
-        username: String 
-        password: String
+        username: String!
+        password: String!
         name: String 
         apellido: String 
-        groups: String
+        groups: [String]
     }
 
     input ActivoInput {
@@ -28,20 +28,39 @@ const schemas = gql`
         nombre: String
         host: String, 
         tipo: String, 
-        gAdmin: String, 
+        gAdmin: [String], 
 
+    }
+
+    type Change {
+        activo: String, 
+        user: String, 
+        mensaje: String
+    }
+
+    input ChangeInput {
+        activo: String, 
+        user: String, 
+        mensaje: String
     }
 
     type Query {
         #Gestion de usuarios
         login(user: UserInput) : String 
-        sigin(user: UserInput) : User
         get_user(token: String) : User
-
+        
         #Gestion de activos
-        getAllActives(): Activo
-        getActivo(activo: ActivoInput)
-        addActivo(activo: ActivoInput)
+        getAllActivos: [Activo]
+        getActivo(activo: ActivoInput): [Activo]
+
+        #Changelog
+        getChanges(activo: String): [Change]        
+    }
+
+    type Mutation {
+        addActivo(activo: ActivoInput): Activo
+        signin(user: UserInput) : User
+        newChange(change: ChangeInput): Change
     }
 `;
 
